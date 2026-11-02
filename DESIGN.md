@@ -42,7 +42,7 @@ Kode warna terbaru di atas mengalahkan perkiraan warna dari screenshot. Khususny
 - Terjemahkan desain tanpa redesign. Susunan, crop foto, ukuran relatif, dan bentuk dekorasi harus mengikuti screenshot. Responsif pada HP, tablet, desktop, dan layar besar.
 - Navbar sticky: About, Services, Portfolio, Contact merupakan bagian **satu halaman**. Indikator glassmorphic mengikuti klik dan posisi scroll. Teks `porfolio` tetap mengikuti referensi navbar.
 - Mobile/tablet: hamburger tiga garis, daftar vertikal, dapat ditutup lewat pilihan navigasi, Escape, dan klik di luar.
-- Hero adalah bagian `#about`. Gunakan foto asli `assets/portrait.svg`, bukan foto pengganti. Pertahankan transparansi dan proporsinya.
+- Hero adalah bagian `#about`. Gunakan `assets/portrait.webp`, hasil konversi foto asli `assets/portrait.svg`; pertahankan transparansi dan proporsi 721 × 800 px.
 - **See my artwork** adalah link ke **`#recent-projects`**, yang berada di bagian `#portfolio`. Pertahankan ID ini saat desain body Recent Project diterima. Tombol awal `#181515`, hover/fokus diisi animasi merah `#8F0000`.
 - Navbar, hero, Services, Recent Projects, Tools, Work Experience, Contact, dan footer digabung dalam satu halaman mengikuti desain yang diberikan; keterbatasan aset asli dicatat di atas.
 - Hormati preferensi reduced motion, fokus keyboard, dan navigasi tanpa JavaScript.
