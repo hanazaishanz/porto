@@ -311,7 +311,6 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const animations = new Set();
   let entered = false;
-  let ready = false;
   let visible = false;
   let safetyTimer;
   let viewportWidth = window.innerWidth;
@@ -328,7 +327,7 @@
   }
 
   function enter() {
-    if (!ready || !visible || document.hidden || entered) return;
+    if (!visible || document.hidden || entered) return;
     entered = true;
     if (reducedMotion.matches || !title.animate) { finish(); return; }
 
@@ -411,11 +410,8 @@
     else enter();
   });
   reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) finish(); });
-  Promise.allSettled([document.fonts?.ready, hero.querySelector(".hero-photo")?.decode?.()]).then(() => {
-    ready = true;
-    hero.dataset.motionReady = "true";
-    window.requestAnimationFrame(enter);
-  });
+  hero.dataset.motionReady = "true";
+  window.requestAnimationFrame(enter);
 })();
 
 

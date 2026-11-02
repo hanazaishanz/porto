@@ -38,6 +38,18 @@ test('cinematic opening holds the title in the center, then reveals the portrait
   expect(await layout()).toEqual(final);
 });
 
+test('hero opening starts without waiting for fonts or portrait decoding', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(document.fonts, 'ready', {
+      configurable: true,
+      get: () => new Promise(() => {}),
+    });
+    HTMLImageElement.prototype.decode = () => new Promise(() => {});
+  });
+  await loadHero(page);
+  expect(await page.locator('.hero').evaluate(hero => hero.getAnimations({subtree:true}).length)).toBeGreaterThan(0);
+});
+
 test('resize and user interaction finish the opening immediately without hidden content or a second intro', async ({ page }) => {
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await loadHero(page);
